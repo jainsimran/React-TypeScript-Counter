@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Year from './Year';
-import Month from './Month';
-import Day from './Day';
+import Count from './Count';
 
 interface Props{}
 
@@ -10,6 +8,7 @@ interface State{
     year: number;
     month: number;
     day: number;
+
 }
 
 export default class Counter extends React.Component<Props, State>{
@@ -65,15 +64,26 @@ export default class Counter extends React.Component<Props, State>{
     render(){
         return(
             <section>
-                <Year year={this.state.year} />
-                <button onClick={this.incrementYear}>Increment</button>
-                <button onClick={this.decrementYear}> Decrement </button>
-                <Month month={this.state.month} />
-                <button onClick={this.incrementMonth}>Increment</button>
-                <button onClick={this.decrementMonth}> Decrement </button>
-                <Day day={this.state.day} />
-                <button onClick={this.incrementDay}>Increment</button>
-                <button onClick={this.decrementDay}> Decrement </button>
+                <Count 
+                 titleName={this.state.year} 
+                 title="Year"
+                 increment={this.incrementYear} 
+                 decrement={this.decrementYear}
+                />
+
+                <Count
+                 titleName={this.state.month} 
+                 title="Month"
+                 increment={this.incrementMonth} 
+                 decrement={this.decrementMonth}
+                />
+
+                <Count titleName={this.state.day} 
+                 title="Day"
+                 increment={this.incrementDay}
+                 decrement={this.decrementDay}
+                />
+                
             </section>
         )
     }
